@@ -27,7 +27,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "nucleo_wb15cc_errno.h"
 #include "nucleo_wb15cc_conf.h"
-   
+
+#include "stm32wbxx_hal_exti.h"
+
 #if (USE_BSP_COM_FEATURE > 0)
   #if (USE_COM_LOG > 0)
     #ifndef __GNUC__
@@ -35,7 +37,7 @@
     #endif
   #endif
 #endif
-   
+
 /** @addtogroup BSP
   * @{
   */
@@ -198,7 +200,7 @@ typedef enum
 #define BUTTON_SW1_GPIO_PORT                    GPIOA
 #define BUTTON_SW1_GPIO_CLK_ENABLE()            __HAL_RCC_GPIOA_CLK_ENABLE()
 #define BUTTON_SW1_GPIO_CLK_DISABLE()           __HAL_RCC_GPIOA_CLK_DISABLE()
-#define BUTTON_SW1_EXTI_LINE                    EXTI_LINE_0
+#define BUTTON_SW1_EXTI_LINE                    LL_EXTI_LINE_0
 #ifdef CORE_CM0PLUS
 #define BUTTON_SW1_EXTI_IRQn                    EXTI1_0_IRQn
 #else
@@ -209,7 +211,7 @@ typedef enum
 #define BUTTON_SW2_GPIO_PORT                    GPIOE
 #define BUTTON_SW2_GPIO_CLK_ENABLE()            __HAL_RCC_GPIOE_CLK_ENABLE()
 #define BUTTON_SW2_GPIO_CLK_DISABLE()           __HAL_RCC_GPIOE_CLK_DISABLE()
-#define BUTTON_SW2_EXTI_LINE                    EXTI_LINE_4
+#define BUTTON_SW2_EXTI_LINE                    LL_EXTI_LINE_4
 #ifdef CORE_CM0PLUS
 #define BUTTON_SW2_EXTI_IRQn                    EXTI15_4_IRQn
 #else
@@ -220,7 +222,7 @@ typedef enum
 #define BUTTON_SW3_GPIO_PORT                    GPIOA
 #define BUTTON_SW3_GPIO_CLK_ENABLE()            __HAL_RCC_GPIOA_CLK_ENABLE()
 #define BUTTON_SW3_GPIO_CLK_DISABLE()           __HAL_RCC_GPIOA_CLK_DISABLE()
-#define BUTTON_SW3_EXTI_LINE                    EXTI_LINE_6
+#define BUTTON_SW3_EXTI_LINE                    LL_EXTI_LINE_6
 #ifdef CORE_CM0PLUS
 #define BUTTON_SW3_EXTI_IRQn                    EXTI15_4_IRQn
 #else
